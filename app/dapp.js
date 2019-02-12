@@ -23,7 +23,7 @@ class App extends React.Component {
     alert('mount')
     if (window.ethereum) {
       alert('eth')
-      await window.ethereum.enable();
+      window.ethereum.enable();
       if (window.ethereum.isStatus) {
         alert('status')
         this.setState({isStatus: true});
