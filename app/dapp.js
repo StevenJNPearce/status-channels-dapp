@@ -19,12 +19,16 @@ class App extends React.Component {
     this.channels = getChannels();
   }
 
-  componentDidMount() {
-    EmbarkJS.onReady(() => {
-      if (web3.currentProvider.isStatus) {
+  componentWillMount() {
+    alert('mount')
+    if (window.ethereum) {
+      alert('eth')
+      await window.ethereum.enable();
+      if (window.ethereum.isStatus) {
+        alert('status')
         this.setState({isStatus: true});
       }
-    });
+    }
   }
 
   render() {
